@@ -98,7 +98,7 @@ test("clause_get refuses an ambiguous partial title with the candidate list; an 
   assert.deepEqual(c.bad, [], `non-JSON on stdout: ${c.bad.join(" | ")}`);
 });
 
-test.skip("stdio: initialize, tools/list, search, assemble five clauses into a .docx", async (t) => {
+test("stdio: initialize, tools/list, search, assemble five clauses into a .docx", async (t) => {
   const c = client();
   t.after(() => c.close());
   await init(c);

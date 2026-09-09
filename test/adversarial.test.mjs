@@ -142,7 +142,7 @@ test("an existing out_path is never overwritten without overwrite: true", async 
   assert.notDeepEqual(readFileSync(out), first);
 });
 
-test.skip("clause_export refuses an existing destination and imports report a missing file", async (t) => {
+test("clause_export refuses an existing destination and imports report a missing file", async (t) => {
   const c = client();
   t.after(() => c.close());
   await init(c);

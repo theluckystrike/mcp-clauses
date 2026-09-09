@@ -58,7 +58,7 @@ function client(dataHome, key) {
 }
 
 test.skip("two processes, one data dir: every clause and every update survives", async () => {
-  const key = "";
+  const key = execFileSync(process.execPath, [join(REPO, "scripts", "sign-license.mjs"), "clauses"], { encoding: "utf8" }).trim();
   const sandbox = mkdtempSync(join(tmpdir(), "mcp-clauses-conc-"));
   const dataHome = join(sandbox, "data");
   const a = client(dataHome, key);
