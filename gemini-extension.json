@@ -1,0 +1,22 @@
+{
+  "name": "mcp-clauses",
+  "version": "0.21.0",
+  "description": "MCP server for a searchable contract clause library. Reusable contract clauses, searched and assembled into Word.",
+  "settings": [
+    {
+      "name": "mcp.zovo.one token",
+      "description": "A free anonymous token from https://mcp.zovo.one/mcp/token, or your Pro key. One token is one data space, and it is refreshed for another 30 days on every write.",
+      "envVar": "ZOVO_MCP_TOKEN",
+      "sensitive": true
+    }
+  ],
+  "mcpServers": {
+    "clauses": {
+      "httpUrl": "https://mcp.zovo.one/mcp/clauses",
+      "headers": {
+        "Authorization": "Bearer ${ZOVO_MCP_TOKEN}"
+      },
+      "description": "Reusable contract clauses, searched and assembled into Word."
+    }
+  }
+}
