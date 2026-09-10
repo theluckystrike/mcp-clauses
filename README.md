@@ -1,13 +1,45 @@
 # mcp-clauses
 
+<!-- mirror-seo:start -->
+
+**MCP server for a searchable contract clause library.** Reusable contract clauses, searched and assembled into Word.
+
+Works with Claude Desktop, Claude Code, Cursor and any Model Context Protocol client. Runs on your own machine, or hosted with no install.
+
+## Install
+
+**Hosted, nothing to install.** Point an MCP client at `https://mcp.zovo.one/mcp/clauses` over streamable-http and send `Authorization: Bearer <token>`, where the token is a Pro key or a free anonymous one from <https://mcp.zovo.one/mcp/token>.
+
+**Claude Desktop, one click.** Download `clauses.mcpb` from the [latest release](https://github.com/theluckystrike/mcp-servers/releases/latest) and double-click it.
+
+**From source.** The mirror is self-contained: every `@theluckystrike/*` dependency is vendored, so a fresh clone builds with no extra setup.
+
+```sh
+git clone https://github.com/theluckystrike/mcp-clauses.git
+cd mcp-clauses
+npm install && npm run build
+```
+
+Then point your client at the built entry point:
+
+```json
+{
+  "mcpServers": {
+    "clauses": {
+      "command": "node",
+      "args": ["/absolute/path/to/mcp-clauses/dist/index.js"]
+    }
+  }
+}
+```
+
+> `@theluckystrike/mcp-clauses` is **not published on npm yet**, so an `npx -y @theluckystrike/mcp-clauses` command will fail. The three paths above are the working ones and each is exercised by CI.
+
 ![clauses demo](https://raw.githubusercontent.com/theluckystrike/mcp-servers/main/assets/demo-clauses.gif)
-
-**One-click install:** download `clauses.mcpb` from the [latest release](https://github.com/theluckystrike/mcp-servers/releases/latest) and double-click it in Claude Desktop.
-
-**Hosted endpoint (no install):** `https://mcp.zovo.one/mcp/clauses` (streamable-http; send `Authorization: Bearer <Pro key or anonymous token from https://mcp.zovo.one/mcp/token>`).
 
 Read-only mirror of [mcp-servers/servers/clauses](https://github.com/theluckystrike/mcp-servers/tree/main/servers/clauses). See [MIRROR.md](MIRROR.md).
 
+<!-- mirror-seo:end -->
 
 Say "draft a service agreement for Beta Corp, 4,500 EUR, 14-day terms" and get a real `.docx` built from your own clause library. This MCP server keeps the contract and proposal paragraphs you reuse -- scope, payment terms, late fees, IP assignment, confidentiality, termination, liability cap and twenty more -- as searchable clauses with `{{variables}}` in them. It ships with 25 generic freelance starters, finds the right ones by ranked search, fills the variables you supply, leaves every fact you did not supply as a visible bracketed prompt like `[late fee percent]`, and writes the assembled document to Word or markdown. Every document opens with the line that it is a generic template and not legal advice. Everything runs locally: no upload, no account, no native dependency.
 
