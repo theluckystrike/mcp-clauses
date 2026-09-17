@@ -1,6 +1,6 @@
 {
   "name": "mcp-clauses",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "description": "MCP server for a searchable contract clause library. Reusable contract clauses, searched and assembled into Word.",
   "settings": [
     {
